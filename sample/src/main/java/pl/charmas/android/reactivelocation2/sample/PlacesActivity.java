@@ -65,7 +65,7 @@ public class PlacesActivity extends BaseActivity {
                 reactiveLocationProvider.getCurrentPlace(null)
                         .subscribe(new Consumer<PlaceLikelihoodBuffer>() {
                             @Override
-                            public void call(PlaceLikelihoodBuffer buffer) {
+                            public void accept(PlaceLikelihoodBuffer buffer) {
                                 if(buffer.getStatus().isSuccess()) {
                                     PlaceLikelihood likelihood = buffer.get(0);
                                     if (likelihood != null) {
