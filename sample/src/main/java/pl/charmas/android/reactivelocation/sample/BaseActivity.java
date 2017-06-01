@@ -13,8 +13,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        RxPermissions
-                .getInstance(this)
+        new RxPermissions(this)
                 .request(Manifest.permission.ACCESS_FINE_LOCATION)
                 .subscribe(new Action1<Boolean>() {
                     @Override
