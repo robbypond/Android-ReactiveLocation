@@ -65,9 +65,11 @@ public class PlacesActivity extends BaseActivity {
                         .subscribe(new Action1<PlaceLikelihoodBuffer>() {
                             @Override
                             public void call(PlaceLikelihoodBuffer buffer) {
-                                PlaceLikelihood likelihood = buffer.get(0);
-                                if (likelihood != null) {
-                                    currentPlaceView.setText(likelihood.getPlace().getName());
+                                if(buffer.getStatus().isSuccess()) {
+                                    PlaceLikelihood likelihood = buffer.get(0);
+                                    if (likelihood != null) {
+                                        currentPlaceView.setText(likelihood.getPlace().getName());
+                                    }
                                 }
                                 buffer.release();
                             }
